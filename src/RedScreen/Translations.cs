@@ -18,6 +18,7 @@ internal static class Translations
             ["tray.temperature"] = "Color temperature",
             ["tray.brightness"] = "Brightness",
             ["tray.quit"] = "Quit",
+            ["tray.autostart"] = "Start with Windows",
             ["tray.rejected"] = "Windows rejected the color change.",            ["state.custom"] = "Custom",
             ["state.off"] = "Off",
 
@@ -105,6 +106,7 @@ internal static class Translations
             ["tray.temperature"] = "Fargetemperatur",
             ["tray.brightness"] = "Lysstyrke",
             ["tray.quit"] = "Avslutt",
+            ["tray.autostart"] = "Start med Windows",
             ["tray.rejected"] = "Windows avviste fargeendringen.",            ["state.custom"] = "Egendefinert",
             ["state.off"] = "Av",
 

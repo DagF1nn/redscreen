@@ -91,6 +91,7 @@ internal sealed class TrayMenu
             lang.DropDownItems.Add(Item(name, () => _app.SetLanguage(c), Loc.Current == c));
         }
         Menu.Items.Add(lang);
+        Menu.Items.Add(Item(Loc.T("tray.autostart"), () => Autostart.Set(!Autostart.IsEnabled), Autostart.IsEnabled));
 
         Menu.Items.Add(new ToolStripSeparator());
         Menu.Items.Add(Item(Loc.T("tray.quit"), () => _app.Quit()));

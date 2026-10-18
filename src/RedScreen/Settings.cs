@@ -100,8 +100,12 @@ public class Settings : Observable
         {
             // Ødelagt fil: start med standardverdier i stedet for å krasje.
         }
-        return new Settings();
+        return new Settings { IsNew = !File.Exists(FilePath) };
     }
+
+    /// <summary>Ingen innstillingsfil fantes: første oppstart.</summary>
+    [JsonIgnore]
+    public bool IsNew { get; private set; }
 
     /// <summary>Når true lagres ingenting (brukes av --snapshot).</summary>
     [JsonIgnore]

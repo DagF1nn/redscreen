@@ -9,7 +9,7 @@ Unlike Windows Night light, RedScreen lets you make your own modes and schedule 
 - **Modes:** named presets with a colour temperature (500 K, fully red, to 10 000 K) and a brightness level.
 - **Automations:** switch to a mode at a set time on chosen weekdays, with an optional gradual transition that ends at that time.
 - **Daytime:** a time window (07:00–18:00 by default) where the filter is off. It also turns the filter off in the morning if the PC was asleep or shut down.
-- **Tray menu:** quick access to modes, colour temperature, brightness and language. The tray icon shows the current screen colour.
+- **Tray menu:** quick access to modes, colour temperature, brightness, language and starting with Windows. The tray icon shows the current screen colour.
 - **Multiple monitors** are supported.
 - English and Norwegian.
 
@@ -23,7 +23,7 @@ Requires Windows 10 or 11 (64-bit).
 
 RedScreen is not code-signed yet, so Windows may show "Windows protected your PC". Click **More info** and then **Run anyway**. On PCs with Smart App Control turned on, Windows may block it entirely until signing is in place.
 
-RedScreen does not start with Windows by itself yet. To start it at login, put a shortcut to `RedScreen.exe` in the Startup folder (press Win+R and type `shell:startup`).
+RedScreen starts with Windows by default. You can turn this off with **Start with Windows** in the tray menu.
 
 ## Known limitations
 

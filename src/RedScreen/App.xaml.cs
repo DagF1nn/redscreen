@@ -54,7 +54,10 @@ public partial class App : System.Windows.Application
         // «--dry» endrer ikke skjermfargene.
         int settingsIdx = Array.IndexOf(e.Args, "--settings");
         if (settingsIdx >= 0 && settingsIdx + 1 < e.Args.Length)
+        {
             Settings.FilePath = e.Args[settingsIdx + 1];
+            Autostart.KeyPath = @"Software\RedScreenTest\Run";
+        }
         if (e.Args.Contains("--dry")) GammaRamp.Disabled = true;
 
         // Bare én RedScreen om gangen for den ekte profilen, ellers kjemper de om skjermen.
@@ -84,6 +87,10 @@ public partial class App : System.Windows.Application
             TraySnapshot.Run(this, e.Args[traySnapIdx + 1]);
             return;
         }
+        // Nye brukere: start med Windows, som andre skjermfiltre. Ellers følg exe-filen hvis den er flyttet.
+        if (Settings.IsNew) Autostart.Set(true);
+        else Autostart.Refresh();
+
         // Lagre med en gang, så språkvalg og omgjøring fra eldre versjoner blir varig.
         Settings.Save();
         WatchSettings();
