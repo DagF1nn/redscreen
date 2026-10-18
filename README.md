@@ -1,6 +1,6 @@
 # RedScreen
 
-A free Windows tray app that makes your screen warm, red and dim in the evening,
+A free Windows tray app that makes your screen warm, red and dim in the evening.
 
 Unlike Windows Night light, RedScreen lets you make your own modes and schedule them by the clock.
 
