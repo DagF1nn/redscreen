@@ -1,0 +1,50 @@
+# Bygger RedScreen.exe (frittstående, trenger ikke .NET installert).
+# Tag «v0.1.0» og push den: da lages et utkast til utgivelse med zip-filen.
+# Kjøres den for hånd (Actions → Release → Run workflow), lastes zip-filen bare opp som artefakt.
+name: Release
+
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-dotnet@v6
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Versjon
+        shell: pwsh
+        run: |
+          $version = if ('${{ github.ref_type }}' -eq 'tag') { '${{ github.ref_name }}'.TrimStart('v') } else { '0.0.0-dev' }
+          "VERSION=$version" >> $env:GITHUB_ENV
+
+      - name: Bygg
+        run: >
+          dotnet publish src/RedScreen/RedScreen.csproj -c Release -r win-x64 --self-contained
+          -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true
+          -p:EnableCompressionInSingleFile=true -p:DebugType=none
+          -p:Version=${{ env.VERSION }} -o publish
+
+      - name: Zip
+        shell: pwsh
+        run: Compress-Archive publish/RedScreen.exe "RedScreen-$env:VERSION-win-x64.zip"
+
+      - uses: actions/upload-artifact@v7
+        with:
+          name: RedScreen-${{ env.VERSION }}-win-x64
+          path: RedScreen-*.zip
+
+      - name: Utkast til utgivelse
+        if: github.ref_type == 'tag'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release create "${{ github.ref_name }}" RedScreen-*.zip --draft --title "RedScreen ${{ github.ref_name }}" --generate-notes

@@ -17,9 +17,13 @@ RedScreen starts empty. Create your own modes and automations in the window.
 
 ## Installation
 
-Download the latest version from the [Releases](https://github.com/DagF1nn/redscreen/releases) page.
+Download the latest `RedScreen-<version>-win-x64.zip` from the [Releases](https://github.com/DagF1nn/redscreen/releases) page, unzip it and run `RedScreen.exe`. Nothing else needs to be installed.
 
-Requires Windows 10 or 11.
+Requires Windows 10 or 11 (64-bit).
+
+RedScreen is not code-signed yet, so Windows may show "Windows protected your PC". Click **More info** and then **Run anyway**. On PCs with Smart App Control turned on, Windows may block it entirely until signing is in place.
+
+RedScreen does not start with Windows by itself yet. To start it at login, put a shortcut to `RedScreen.exe` in the Startup folder (press Win+R and type `shell:startup`).
 
 ## Known limitations
 
