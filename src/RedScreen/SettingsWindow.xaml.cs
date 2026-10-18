@@ -34,6 +34,10 @@ public partial class SettingsWindow : Window
         _app.StateChanged += Refresh;
         Refresh();
         UpdateEmptyState();
+
+        // Kan endres fra tray-menyen eller Oppgavebehandling mens vinduet er skjult.
+        AutostartSwitch.IsChecked = Autostart.IsEnabled;
+        Activated += (_, _) => AutostartSwitch.IsChecked = Autostart.IsEnabled;
     }
 
     // ===== Oppdater visningen fra appen =====
@@ -152,6 +156,12 @@ public partial class SettingsWindow : Window
     }
 
     private void Resume_Click(object sender, RoutedEventArgs e) => _app.ResumeAutomations();
+
+    private void AutostartSwitch_Click(object sender, RoutedEventArgs e)
+    {
+        Autostart.Set(AutostartSwitch.IsChecked == true);
+        AutostartSwitch.IsChecked = Autostart.IsEnabled;
+    }
 
     // ===== Moduser =====
 

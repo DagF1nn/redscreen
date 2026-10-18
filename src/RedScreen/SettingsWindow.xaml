@@ -341,6 +341,21 @@
                             <TextBlock Text="{DynamicResource auto.add}" FontWeight="SemiBold"/>
                         </StackPanel>
                     </Button>
+
+                    <!-- Start med Windows: samme verdi som i tray-menyen (registeret) -->
+                    <Border Style="{StaticResource Card}" Padding="16" Margin="0,12,0,0">
+                        <CheckBox x:Name="AutostartSwitch" Style="{StaticResource Switch}" Click="AutostartSwitch_Click">
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="&#xE7E8;" FontFamily="{StaticResource IconFont}" FontSize="14"
+                                               Foreground="{StaticResource SubTextBrush}" VerticalAlignment="Center" Margin="0,0,8,0"/>
+                                    <TextBlock Text="{DynamicResource autostart.title}" Style="{StaticResource Heading}"/>
+                                </StackPanel>
+                                <TextBlock Text="{DynamicResource autostart.sub}" Style="{StaticResource Caption}"
+                                           TextWrapping="Wrap" Margin="0,4,0,0"/>
+                            </StackPanel>
+                        </CheckBox>
+                    </Border>
                 </StackPanel>
             </ScrollViewer>
         </Grid>
