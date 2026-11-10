@@ -40,24 +40,15 @@ dotnet build
 
 Settings are stored in `%APPDATA%\RedScreen\settings.json`.
 
-## Code signing policy
-
-Free code signing provided by [SignPath.io](https://about.signpath.io), certificate by [SignPath Foundation](https://signpath.org) (application pending).
-
-- The official repository is [github.com/DagF1nn/redscreen](https://github.com/DagF1nn/redscreen).
-- Only `RedScreen.exe` in the release zip files is signed. It is built from this repository by the [release workflow](.github/workflows/release.yml) on GitHub Actions. Nothing built elsewhere is signed.
-- Every signing request is approved by hand.
-
-Team roles:
-
-- Committers and reviewers: [DagF1nn](https://github.com/DagF1nn)
-- Approvers: [DagF1nn](https://github.com/DagF1nn)
-
-### Privacy policy
-
-This program will not transfer any information to other networked systems unless specifically requested by the user or the person installing or operating it.
+## Privacy
 
 RedScreen does not connect to the internet. Settings are stored only on your own PC, in `%APPDATA%\RedScreen\settings.json`.
+
+The release zip files are built from this repository by the [release workflow](.github/workflows/release.yml) on GitHub Actions.
+
+## Support
+
+Hi, I'm an electrician who builds free apps in my spare time to make everyday life easier. If one of them saved you time, [a coffee](https://buymeacoffee.com/dagf1nn) means a lot.
 
 ## License
 

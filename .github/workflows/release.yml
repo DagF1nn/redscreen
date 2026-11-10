@@ -50,4 +50,4 @@ jobs:
         run: >-
           gh release create "${{ github.ref_name }}" RedScreen-*.zip --draft
           --title "RedScreen ${{ github.ref_name }}" --generate-notes
-          --notes "Signing: see the [code signing policy](https://github.com/DagF1nn/redscreen#code-signing-policy). Free code signing provided by SignPath.io, certificate by SignPath Foundation (application pending)."
+          --notes "This build is not code-signed yet. Windows may show a SmartScreen warning, click More info and then Run anyway."
